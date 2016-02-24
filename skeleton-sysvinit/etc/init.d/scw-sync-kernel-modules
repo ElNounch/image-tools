@@ -6,6 +6,7 @@
 # Required-Stop:	$remote_fs
 # Default-Start:	2 3 4 5
 # Default-Stop:
+# X-Start-Before:	udev
 # Short-Description:	Sync kernel modules
 ### END INIT INFO
 
@@ -14,7 +15,7 @@
 set -e
 
 synckernelmodules_start() {
-    log_action_begin_msg "Starting to mount Scaleway extra volumes"
+    log_action_begin_msg "Starting to fetch kernel modules from Scaleway's mirror"
     /usr/local/sbin/scw-sync-kernel-modules
     log_action_end_msg 0
 }
